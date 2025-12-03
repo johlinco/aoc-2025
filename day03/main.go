@@ -1,0 +1,48 @@
+package main
+
+import (
+	"fmt"
+	"os"
+	"strings"
+)
+
+func main() {
+	// Read example and input
+	example, err := os.ReadFile("example.txt")
+	if err != nil {
+		panic(err)
+	}
+	input, err := os.ReadFile("input.txt")
+	if err != nil {
+		panic(err)
+	}
+
+	exampleLines := strings.Split(strings.TrimSpace(string(example)), "\n")
+	inputLines := strings.Split(strings.TrimSpace(string(input)), "\n")
+
+	// Part 1 Example
+	part1Example := solvePart1(exampleLines)
+	fmt.Printf("Part 1 Example: %d\n", part1Example)
+
+	// Part 1 Input
+	part1Input := solvePart1(inputLines)
+	fmt.Printf("Part 1 Input: %d\n", part1Input)
+
+	// Part 2 Example
+	part2Example := solvePart2(exampleLines)
+	fmt.Printf("Part 2 Example: %d\n", part2Example)
+
+	// Part 2 Input
+	part2Input := solvePart2(inputLines)
+	fmt.Printf("Part 2 Input: %d\n", part2Input)
+}
+
+func solvePart1(lines []string) int {
+	// TODO: Implement part 1
+	return 0
+}
+
+func solvePart2(lines []string) int {
+	// TODO: Implement part 2
+	return 0
+}
