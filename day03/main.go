@@ -25,8 +25,8 @@ func main() {
 	fmt.Printf("Part 1 Example: %d\n", part1Example)
 
 	// Part 1 Input
-	part1Input := solvePart1(inputLines)
-	fmt.Printf("Part 1 Input: %d\n", part1Input)
+	// part1Input := solvePart1(inputLines)
+	// fmt.Printf("Part 1 Input: %d\n", part1Input)
 
 	// Part 2 Example
 	part2Example := solvePart2(exampleLines)
@@ -38,7 +38,9 @@ func main() {
 }
 
 func solvePart1(lines []string) int {
-	// TODO: Implement part 1
+	for line := range lines {
+		fmt.Println(line)
+	}
 	return 0
 }
 
