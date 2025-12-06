@@ -42,6 +42,8 @@ func solvePart1(lines []string) int {
 	joltSum := 0
 	for _, line := range lines {
 		lineJolt = 0
+		maxRight := make([int], len(line))
+		
 		fmt.Println(line)
 
 		joltSum += lineJolt
