@@ -38,11 +38,50 @@ func main() {
 }
 
 func solvePart1(lines []string) int {
-	// TODO: Implement part 1
-	return 0
+	accessibleRolls := 0
+	grid := parseGrid(lines)
+	for i := range grid {
+		for j := range grid[i] {
+			if forkliftAccessible(grid, i, j) {
+
+				accessibleRolls++
+			}
+		}
+	}
+	return accessibleRolls
 }
 
 func solvePart2(lines []string) int {
 	// TODO: Implement part 2
 	return 0
+}
+
+func parseGrid(lines []string) [][]string {
+	grid := [][]string{}
+
+	for _, line := range lines {
+		row := []string{}
+		for _, char := range line {
+			row = append(row, string(char))
+		}
+		grid = append(grid, row)
+	}
+
+	return grid
+}
+
+func forkliftAccessible(grid [][]string, posX int, posY int) bool {
+	if grid[posY][posX] != "@" {
+		return false
+	}
+	dirs := [][]int{{0, 1}, {0, -1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}
+	surroundingRolls := 0
+	for _, dir := range dirs {
+		checkX := posX + dir[0]
+		checkY := posY + dir[1]
+		if checkX >= 0 && checkX < len(grid[0]) && checkY >= 0 && checkY < len(grid) && grid[checkY][checkX] == "@" {
+			surroundingRolls++
+		}
+	}
+	return surroundingRolls < 4
 }
