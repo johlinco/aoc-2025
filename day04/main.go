@@ -52,8 +52,33 @@ func solvePart1(lines []string) int {
 }
 
 func solvePart2(lines []string) int {
-	// TODO: Implement part 2
-	return 0
+	removedRolls := 0
+	grid := parseGrid(lines)
+
+	rollsFound := 1
+	rollsToRemove := [][]int{}
+	for rollsFound != 0 {
+		rollsFound = 0
+
+		for i := range grid {
+			for j := range grid[i] {
+				if forkliftAccessible(grid, i, j) {
+					removedRolls++
+					rollsFound++
+					rollsToRemove = append(rollsToRemove, []int{i, j})
+				}
+			}
+		}
+
+		for len(rollsToRemove) > 0 {
+			col := rollsToRemove[len(rollsToRemove)-1][0]
+			row := rollsToRemove[len(rollsToRemove)-1][1]
+			grid[row][col] = "."
+			rollsToRemove = rollsToRemove[:len(rollsToRemove)-1]
+		}
+	}
+
+	return removedRolls
 }
 
 func parseGrid(lines []string) [][]string {
