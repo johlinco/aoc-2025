@@ -54,9 +54,9 @@ func solvePart1(lines []string) int {
 func solvePart2(lines []string) int {
 	removedRolls := 0
 	grid := parseGrid(lines)
-
 	rollsFound := 1
 	rollsToRemove := [][]int{}
+
 	for rollsFound != 0 {
 		rollsFound = 0
 
