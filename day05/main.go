@@ -34,8 +34,8 @@ func main() {
 	fmt.Printf("Part 2 Example: %d\n", part2Example)
 
 	// Part 2 Input
-	part2Input := solvePart2(inputLines)
-	fmt.Printf("Part 2 Input: %d\n", part2Input)
+	// part2Input := solvePart2(inputLines)
+	// fmt.Printf("Part 2 Input: %d\n", part2Input)
 }
 
 func solvePart1(lines []string) int {
@@ -76,6 +76,24 @@ func solvePart1(lines []string) int {
 }
 
 func solvePart2(lines []string) int {
-	// TODO: Implement part 2
-	return 0
+	freshIngredientIDs := 0
+	var ranges [][2]int
+	for _, line := range lines {
+		//fmt.Printf("the line is %s\n", line)
+		if line == "" {
+			break
+		}
+		parts := strings.Split(line, "-")
+		start, err := strconv.Atoi(parts[0])
+		if err != nil {
+			fmt.Printf("Start is Wrong with %s", parts[0])
+		}
+		end, err := strconv.Atoi(parts[1])
+		if err != nil {
+			fmt.Printf("Start is Wrong with %s", parts[1])
+		}
+		ranges = append(ranges, [2]int{start, end})
+	}
+	fmt.Print(ranges)
+	return freshIngredientIDs
 }
